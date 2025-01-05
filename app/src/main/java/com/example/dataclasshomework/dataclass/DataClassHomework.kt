@@ -32,14 +32,17 @@ fun main() {
     if (experiencedTeacher.isNotEmpty()) {
         println(experiencedTeacher)
     } else {
-        // TODO если список имен пустой, то выведи в терминал "Учитель с таким опытом не найден"
+        println("Учитель с таким опытом не найден")
     }
 }
 
 /**
  * Метод поиска опытного учителя из списка
  */
-private fun getExperiencedTeacher(experience: Int, teacherList: List<Teacher>): List<String> {
-    // TODO сейчас метод возвращает пустой список. Напиши здесь фильтрацию поиска учителя из списка teacherList
-    return emptyList()
+fun getExperiencedTeacher(experience: Int, teacherList: List<Teacher>): List<String> {
+    return teacherList.filter {
+        it.progExperience > experience
+    }.map {
+        it.name
+    }
 }
